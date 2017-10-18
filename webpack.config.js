@@ -20,7 +20,12 @@ module.exports = {
             presets: ['env']
           }
         }
-      }
+      },
+
+      {
+        test: /\.scss/,
+        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+      },
     ]
   },
   externals: {

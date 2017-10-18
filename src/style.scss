@@ -1,0 +1,49 @@
+.simple-carousel {
+
+  height: 3em;
+  flex: 1 0 auto;
+
+  border: solid 1px black;
+  padding: 0.5em;
+
+  display: flex;
+  justify-content: space-between;
+
+  .simple-carousel-body {
+    flex: 1 0 auto;
+    position: relative;
+    text-align: center;
+    label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display:none;
+
+    }
+
+    input {
+      -webkit-appearance: none;
+
+      display: none;
+      &:checked {
+        & + label {
+          display: block;
+        }
+      }
+    }
+
+  }
+}
+
+button.left, button.right{
+
+  border: solid 1px black;
+  width: 3em;
+
+
+  &:disabled {
+    color:red;
+  }
+}
