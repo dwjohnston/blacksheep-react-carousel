@@ -42,8 +42,7 @@ button.left, button.right{
   border: solid 1px black;
   width: 3em;
 
-
   &:disabled {
-    color:red;
+    //color:red;
   }
 }

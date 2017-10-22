@@ -157,30 +157,20 @@ var SimpleCarousel = function (_React$Component) {
 
       var selected = this.props.sourceObjects[i];
 
-      console.log(i);
+      this.setState({ i: i, currentSelected: selected });
 
-      this.setState({ i: i, currentSelected: selected, leftDiabled: i === 0 });
+      this.props.onChange(selected);
     }
   }, {
     key: "leftClick",
     value: function leftClick() {
 
-      console.log("lasdaeft");
       this.update(false);
-
-      this.props.onChange(this.state.currentSelected);
     }
   }, {
     key: "rightClick",
     value: function rightClick() {
-
-      console.log("righ aadft");
-      console.log(this);
-      console.log(this.state);
-
       this.update(true);
-
-      this.props.onChange(this.state.currentSelected);
     }
   }, {
     key: "render",
@@ -190,7 +180,7 @@ var SimpleCarousel = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { className: "simple-carousel" },
-        _react2.default.createElement("button", { className: "left", onClick: function onClick() {
+        _react2.default.createElement("button", { className: "left glyphicon glyphicon-chevron-left", onClick: function onClick() {
             _this2.leftClick();
           }, disabled: this.state.i === 0 }),
         _react2.default.createElement(
@@ -207,14 +197,12 @@ var SimpleCarousel = function (_React$Component) {
               _react2.default.createElement(
                 "label",
                 { "for": id },
-                " ",
-                _this2.state.i,
                 label
               )
             );
           })
         ),
-        _react2.default.createElement("button", { className: "right", onClick: function onClick() {
+        _react2.default.createElement("button", { className: "right glyphicon glyphicon-chevron-right", onClick: function onClick() {
             _this2.rightClick();
           }, disabled: this.state.i === this.state.max })
       );
@@ -235,7 +223,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".simple-carousel {\n  height: 3em;\n  flex: 1 0 auto;\n  border: solid 1px black;\n  padding: 0.5em;\n  display: flex;\n  justify-content: space-between;\n}\n\n.simple-carousel .simple-carousel-body {\n  flex: 1 0 auto;\n  position: relative;\n  text-align: center;\n}\n\n.simple-carousel .simple-carousel-body label {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  display: none;\n}\n\n.simple-carousel .simple-carousel-body input {\n  -webkit-appearance: none;\n  display: none;\n}\n\n.simple-carousel .simple-carousel-body input:checked + label {\n  display: block;\n}\n\nbutton.left, button.right {\n  border: solid 1px black;\n  width: 3em;\n}\n\nbutton.left:disabled, button.right:disabled {\n  color: red;\n}\n", ""]);
+exports.push([module.i, ".simple-carousel {\n  height: 3em;\n  flex: 1 0 auto;\n  border: solid 1px black;\n  padding: 0.5em;\n  display: flex;\n  justify-content: space-between;\n}\n\n.simple-carousel .simple-carousel-body {\n  flex: 1 0 auto;\n  position: relative;\n  text-align: center;\n}\n\n.simple-carousel .simple-carousel-body label {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  display: none;\n}\n\n.simple-carousel .simple-carousel-body input {\n  -webkit-appearance: none;\n  display: none;\n}\n\n.simple-carousel .simple-carousel-body input:checked + label {\n  display: block;\n}\n\nbutton.left, button.right {\n  border: solid 1px black;\n  width: 3em;\n}\n", ""]);
 
 // exports
 

@@ -27,31 +27,22 @@ class SimpleCarousel extends React.Component {
 
     let selected = this.props.sourceObjects[i];
 
-    console.log(i);
+    this.setState({i:i, currentSelected: selected});
 
-    this.setState({i:i, currentSelected: selected, leftDiabled : i === 0});
+    this.props.onChange(selected);
+
 
   }
 
   leftClick() {
 
-    console.log("lasdaeft");
     this.update(false);
 
-    this.props.onChange(this.state.currentSelected);
   }
 
   rightClick() {
-
-    console.log("righ aadft");
-    console.log(this);
-    console.log(this.state);
-
     this.update(true);
 
-
-
-    this.props.onChange(this.state.currentSelected);
   }
 
   render() {
@@ -59,15 +50,16 @@ class SimpleCarousel extends React.Component {
     return (
       <div className ="simple-carousel">
 
-        <button className  ="left" onClick ={() => {this.leftClick();}} disabled={this.state.i === 0} />
+        <button className ="left glyphicon glyphicon-chevron-left" onClick ={() => {this.leftClick();}} disabled={this.state.i === 0} />
+
 
           <div className ="simple-carousel-body">{this.props.sourceObjects.map((v,i) => {
             let id = this.props.name + i;
             let label = this.props.labelFn(v);
-            return <div > <input type = "radio" checked = {this.state.i === i} name = {this.props.name} key = {id} value = {label} /><label for = {id} > {this.state.i}{label}</label></div>;
+            return <div > <input type = "radio" checked = {this.state.i === i} name = {this.props.name} key = {id} value = {label} /><label for = {id} >{label}</label></div>;
           })}</div>
 
-        <button className =  "right" onClick = {() => {this.rightClick();}} disabled ={this.state.i === this.state.max}/>
+        <button className =  "right glyphicon glyphicon-chevron-right" onClick = {() => {this.rightClick();}} disabled ={this.state.i === this.state.max}/>
 
       </div>
     );
