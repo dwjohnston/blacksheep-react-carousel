@@ -180,9 +180,13 @@ var SimpleCarousel = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { className: "simple-carousel" },
-        _react2.default.createElement("button", { className: "left glyphicon glyphicon-chevron-left", onClick: function onClick() {
-            _this2.leftClick();
-          }, disabled: this.state.i === 0 }),
+        _react2.default.createElement(
+          "button",
+          { className: "left", onClick: function onClick() {
+              _this2.leftClick();
+            }, disabled: this.state.i === 0 },
+          _react2.default.createElement("i", { "class": "fas fa-caret-left" })
+        ),
         _react2.default.createElement(
           "div",
           { className: "simple-carousel-body" },
@@ -202,9 +206,13 @@ var SimpleCarousel = function (_React$Component) {
             );
           })
         ),
-        _react2.default.createElement("button", { className: "right glyphicon glyphicon-chevron-right", onClick: function onClick() {
-            _this2.rightClick();
-          }, disabled: this.state.i === this.state.max })
+        _react2.default.createElement(
+          "button",
+          { className: "right", onClick: function onClick() {
+              _this2.rightClick();
+            }, disabled: this.state.i === this.state.max },
+          _react2.default.createElement("i", { "class": "fas fa-caret-right" })
+        )
       );
     }
   }]);
@@ -218,7 +226,7 @@ exports.default = SimpleCarousel;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(undefined);
+exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
@@ -380,7 +388,7 @@ module.exports = function(list, options) {
 
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
 
 	// By default, add <style> tags to the <head> element
 	if (!options.insertInto) options.insertInto = "head";

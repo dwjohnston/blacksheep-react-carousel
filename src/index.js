@@ -49,8 +49,9 @@ class SimpleCarousel extends React.Component {
 
     return (
       <div className ="simple-carousel">
-
-        <button className ="left glyphicon glyphicon-chevron-left" onClick ={() => {this.leftClick();}} disabled={this.state.i === 0} />
+        <button className ="left" onClick ={() => {this.leftClick();}} disabled={this.state.i === 0}> 
+          <i class="fas fa-caret-left"></i>
+        </button> 
 
 
           <div className ="simple-carousel-body">{this.props.sourceObjects.map((v,i) => {
@@ -59,7 +60,9 @@ class SimpleCarousel extends React.Component {
             return <div > <input type = "radio" checked = {this.state.i === i} name = {this.props.name} key = {id} value = {label} /><label for = {id} >{label}</label></div>;
           })}</div>
 
-        <button className =  "right glyphicon glyphicon-chevron-right" onClick = {() => {this.rightClick();}} disabled ={this.state.i === this.state.max}/>
+        <button className =  "right" onClick = {() => {this.rightClick();}} disabled ={this.state.i === this.state.max}>
+          <i class="fas fa-caret-right"></i>
+        </button>
 
       </div>
     );
