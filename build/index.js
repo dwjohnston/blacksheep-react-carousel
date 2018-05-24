@@ -147,24 +147,19 @@ var SimpleCarousel = function (_React$Component) {
   _createClass(SimpleCarousel, [{
     key: "componentWillMount",
     value: function componentWillMount() {
-
       this.setState({ i: 0, currentSelected: this.props.sourceObjects[0], max: this.props.sourceObjects.length - 1 });
     }
   }, {
     key: "update",
     value: function update(inc) {
       var i = this.state.i + (inc ? 1 : -1);
-
       var selected = this.props.sourceObjects[i];
-
       this.setState({ i: i, currentSelected: selected });
-
       this.props.onChange(selected);
     }
   }, {
     key: "leftClick",
     value: function leftClick() {
-
       this.update(false);
     }
   }, {
@@ -185,7 +180,7 @@ var SimpleCarousel = function (_React$Component) {
           { className: "left", onClick: function onClick() {
               _this2.leftClick();
             }, disabled: this.state.i === 0 },
-          _react2.default.createElement("i", { "class": "fas fa-caret-left" })
+          _react2.default.createElement("i", { className: "fas fa-caret-left" })
         ),
         _react2.default.createElement(
           "div",
@@ -195,12 +190,11 @@ var SimpleCarousel = function (_React$Component) {
             var label = _this2.props.labelFn(v);
             return _react2.default.createElement(
               "div",
-              null,
-              " ",
-              _react2.default.createElement("input", { type: "radio", checked: _this2.state.i === i, name: _this2.props.name, key: id, value: label }),
+              { key: "div" + id },
+              _react2.default.createElement("input", { type: "radio", readOnly: true, checked: _this2.state.i === i, name: _this2.props.name, value: label }),
               _react2.default.createElement(
                 "label",
-                { "for": id },
+                { htmlFor: id },
                 label
               )
             );
@@ -211,7 +205,7 @@ var SimpleCarousel = function (_React$Component) {
           { className: "right", onClick: function onClick() {
               _this2.rightClick();
             }, disabled: this.state.i === this.state.max },
-          _react2.default.createElement("i", { "class": "fas fa-caret-right" })
+          _react2.default.createElement("i", { className: "fas fa-caret-right" })
         )
       );
     }
